@@ -125,7 +125,9 @@ contract ReentrancyAttackTest is Test {
         uint256 afterReentrancyAttackBalance = address(reentrancyAttack).balance;
         uint256 afterCryptoBankBalance = address(cryptoBank).balance;
 
-        assertEq(afterReentrancyAttackBalance, previousReentrancyAttackBalance + previousCryptoBankBalance + attackValue);
+        assertEq(
+            afterReentrancyAttackBalance, previousReentrancyAttackBalance + previousCryptoBankBalance + attackValue
+        );
         assertEq(afterCryptoBankBalance, 0);
 
         vm.stopPrank();
